@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
-    def index
+    def def
         render 'index'
     end
 end
