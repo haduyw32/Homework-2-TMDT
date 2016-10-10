@@ -9,10 +9,71 @@
     <script src="/js/jquery-1.9.1.min.js"></script>
     <% if @checkCookie != 1 %>
       <script src="/js/Cookie.js"></script>
+      <style type="text/css">
+        *{
+          margin: 0px;
+          padding: 0px;
+        }
+        #page{
+          width: 1300px;
+          height: 970px;
+          background-color: 
+        }
+        #header{
+          width: 1300px;
+          height: 70px;
+          background-color: #FFFFFF;
+        }
+        #trangchu{
+          width: 900px;
+          height: 70px;
+          float: left;
+        }
+        #login{
+          width: 400px;
+          height: 70px;
+          float: left;
+          /*background-color: #55ACEE;*/
+        }
+        #content{
+          width: 1300px;
+          height: 900px;  
+          clear:left;
+          background-color: #F5F8FA;
+        }
+    /*#login a{
+      margin-left: 100px;
+      margin-top: 50px;
+
+    }*/
+  </style>
+
+
     <% end %>
   </head>
 
   <body>
+    <% if @checkCookie != 1 %>
+    <div id = "page">
+      <div id="header">
+        <div id="trangchu">
+        <img src="/images/logo4.png" width="70" height="70" alt="Planets" usemap="#planetmap">
+
+          <map name="planetmap">
+            <area shape="rect" coords="0,0,70,70" alt="Sun" href="https://twitter.com/download?logged_out=1&lang=en">
+            <!-- <area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm"> -->
+            <!-- <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm"> -->
+          </map>
+        </div>
+        <div id="login">
+          <p style="margin-top: 20px;margin-left: 100px;"><a href="https://www.google.com.vn/?gfe_rd=cr&ei=NR77V8OgLY-Q9QWK-ICAAw">Hava an account?Log
+            in</a></p>
+          </div>
+        </div>
+        <hr>
+        <div id ="content"></div>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
