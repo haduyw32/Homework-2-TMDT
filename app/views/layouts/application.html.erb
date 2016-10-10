@@ -9,44 +9,34 @@
     <script src="/js/jquery-1.9.1.min.js"></script>
     <% if @checkCookie != 1 %>
       <script src="/js/Cookie.js"></script>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Mạng xã hội</title>
+
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
       <style type="text/css">
         *{
-          margin: 0px;
-          padding: 0px;
+        margin: 0px;
+        padding: 0px;
         }
         #page{
-          width: 1300px;
-          height: 970px;
-          background-color: 
+          width: 1400px;
+          height: 1000px;
         }
         #header{
-          width: 1300px;
-          height: 70px;
-          background-color: #FFFFFF;
-        }
-        #trangchu{
-          width: 900px;
-          height: 70px;
-          float: left;
-        }
-        #login{
-          width: 400px;
-          height: 70px;
-          float: left;
-          /*background-color: #55ACEE;*/
-        }
-        #content{
-          width: 1300px;
-          height: 900px;  
-          clear:left;
+          width: 1400px;
+          height: 100px;
           background-color: #F5F8FA;
         }
-    /*#login a{
-      margin-left: 100px;
-      margin-top: 50px;
-
-    }*/
-  </style>
+        #header ul{
+        width: 400px;
+        }
+        </style>
 
 
     <% end %>
@@ -54,25 +44,73 @@
 
   <body>
     <% if @checkCookie != 1 %>
-    <div id = "page">
-      <div id="header">
-        <div id="trangchu">
-        <img src="/images/logo4.png" width="70" height="70" alt="Planets" usemap="#planetmap">
 
-          <map name="planetmap">
-            <area shape="rect" coords="0,0,70,70" alt="Sun" href="https://twitter.com/download?logged_out=1&lang=en">
-            <!-- <area shape="circle" coords="90,58,3" alt="Mercury" href="mercur.htm"> -->
-            <!-- <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm"> -->
-          </map>
-        </div>
-        <div id="login">
-          <p style="margin-top: 20px;margin-left: 100px;"><a href="https://www.google.com.vn/?gfe_rd=cr&ei=NR77V8OgLY-Q9QWK-ICAAw">Hava an account?Log
-            in</a></p>
-          </div>
-        </div>
-        <hr>
-        <div id ="content"></div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+    <!-- bắt đầu header -->
+      <div id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <!-- button home phần header -->
+
+              <a class="navbar-brand" href="test.html">Home</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+                <!-- button Notifications phần header -->
+                <!-- <li class="active"><a href="notifications.html">Notifications</a></li> -->
+
+              </ul> 
+              <!-- khung search phần header -->
+
+              <form class="navbar-form navbar-left" role="search" style="margin-left: 400px;">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search twitter" style="width: :400px;">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+
+              <!-- phần viết tweet và account settings -->
+              <ul class="nav navbar-nav navbar-right">
+
+                <!-- phần tweet -->
+                <!-- <li><a href="tweet.html">TWEET</a></li> -->
+                
+                <!-- phần acount settings -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Settings</a></li>
+                    <!-- <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li> -->
+                    <li class="divider"></li>
+                    <li><a href="#">Log out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
       </div>
+      <!-- kết thúc header -->
     <% end %>
     <%= yield %>
   </body>
