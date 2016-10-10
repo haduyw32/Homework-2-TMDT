@@ -1,14 +1,125 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Homework2Tmdt</title>
+    <title>Homework2</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <% if @checkCookie != 1 %>
+      <script src="/js/Cookie.js"></script>
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <title>Mạng xã hội</title>
+
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+
+      <style type="text/css">
+        *{
+        margin: 0px;
+        padding: 0px;
+        }
+        #page{
+          width: 1400px;
+          height: 1000px;
+        }
+        #header{
+          width: 1400px;
+          height: 100px;
+          background-color: #F5F8FA;
+        }
+        #header ul{
+        width: 400px;
+        }
+        </style>
+
+
+    <% end %>
   </head>
 
   <body>
+    <% if @checkCookie != 1 %>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+    <!-- bắt đầu header -->
+      <div id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <!-- button home phần header -->
+
+              <a class="navbar-brand" href="/">Home</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+                <!-- button Notifications phần header -->
+                <!-- <li class="active"><a href="notifications.html">Notifications</a></li> -->
+
+              </ul> 
+              <!-- khung search phần header -->
+
+              <form class="navbar-form navbar-left" style="margin-left: 400px;" action="\searchFriend" method="post" accept-charset="UTF-8" data-remote="true">
+                <div class="form-group">
+                  <input type="text" name="search" class="form-control" placeholder="Search friend" style="width: :400px;">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+              </form>
+
+              <!-- phần viết tweet và account settings -->
+              <ul class="nav navbar-nav navbar-right">
+
+                <!-- phần tweet -->
+                <!-- <li><a href="tweet.html">TWEET</a></li> -->
+                
+                <!-- phần acount settings -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Settings</a></li>
+                    <!-- <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li> -->
+                    <li class="divider"></li>
+                    <li><a onclick="logout()">Log out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+      </div>
+      <!-- kết thúc header -->
+      <script>
+        function logout() {
+          document.cookie = "cusername=;";
+          document.cookie = "cpassword=;";
+          document.cookie = "cname=;";
+          window.location.href="/login";
+			  }
+      </script>
+    <% end %>
     <%= yield %>
   </body>
 </html>

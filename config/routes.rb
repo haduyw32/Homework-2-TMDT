@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'login#signup'
   post '/login', to: 'login#loginp'
   post '/signup', to: 'login#signupp'
-  post '/articles', to: 'index#indexp'
+  post '/searchFriend', to: "index#searchF"
+  post '/saveFriend', to "index#saveF"
 end

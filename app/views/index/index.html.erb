@@ -9,17 +9,6 @@
 </div> -->
 <!-- kêt thúc content --> 
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Mạng xã hội</title>
-
-    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       *{
         margin: 0px;
@@ -48,49 +37,43 @@
       }
 
     </style>
-  </head>
-  <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+ 
+    
 
-    <div id="page">
-      <!-- bắt đầu content -->
-      <div id="content">
-        <div id="tweetcontent">
-          <div class="form-group">
-            
-            <!-- khu vực nhập tweet -->
-            <textarea class="form-control" rows="2" id="myTextarea" placeholder="Chia sẻ suy nghĩ của bạn!" style="width: 800px;"></textarea>
-            <!-- kết thúc textarea nhập tweet -->
-          
-
-            <!-- button để đăng tweet -->
-            <button type="button" onclick="myFunction()" class="btn btn-success" style="margin-top: 10px;">Tweet</button>
-            <!-- kết thúc button để đăng tweet -->
-
-            <!-- hàm để đăng tweet -->
-            <script>
-            function myFunction() {
-                var x = document.getElementById("myTextarea").value;
-                document.getElementById("demo").innerHTML = x;
-                document.getElementById("myTextarea").value = "";
-            }
-            </script>
-            <!-- kết thúc hàm để đăng tweet -->
-
-          </div>
-          <hr>
-        </div> <!-- kết thúc div tweetcontent -->
+<div id="page">
+  <!-- bắt đầu content -->
+  <div id="content">
+    <div id="tweetcontent">
+      <div class="form-group">
         
-        <div id="tweet" style="margin-left: 250px; margin-top: 50px;"> <!-- bắt đầu div tweet, div nội dung tweet trên wall -->
-          <p id="demo"></p>
-          <hr>
-        </div> <!-- kết thúc div tweet -->
-      </div> <!-- kêt thúc div content -->
+        <!-- khu vực nhập tweet -->
+        <textarea class="form-control" rows="2" id="myTextarea" placeholder="Chia sẻ suy nghĩ của bạn!" style="width: 800px;"></textarea>
+        <!-- kết thúc textarea nhập tweet -->
       
 
-    </div> <!-- kết thúc div page -->
+        <!-- button để đăng tweet -->
+        <button type="button" onclick="myFunction()" class="btn btn-success" style="margin-top: 10px;">Tweet</button>
+        <!-- kết thúc button để đăng tweet -->
+
+        <!-- hàm để đăng tweet -->
+        <script>
+        function myFunction() {
+            var x = document.getElementById("myTextarea").value;
+            document.getElementById("demo").innerHTML = x;
+            document.getElementById("myTextarea").value = "";
+        }
+        </script>
+        <!-- kết thúc hàm để đăng tweet -->
+
+      </div>
+      <hr>
+    </div> <!-- kết thúc div tweetcontent -->
     
-  </body>
-</html>
+    <div id="tweet" style="margin-left: 250px; margin-top: 50px;"> <!-- bắt đầu div tweet, div nội dung tweet trên wall -->
+      <p id="demo"></p>
+      <hr>
+    </div> <!-- kết thúc div tweet -->
+  </div> <!-- kêt thúc div content -->
+  <%= render "frindFriend" %>
+</div> <!-- kết thúc div page -->
 
