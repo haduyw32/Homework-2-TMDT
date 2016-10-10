@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
     skip_before_filter  :verify_authenticity_token
     def login
+        @checkCookie = 1
         render 'login'
     end
 
@@ -9,16 +10,14 @@ class LoginController < ApplicationController
             redirect_to '/signup'
             return
         end
-        if User.find_by(username: params[:_id]) == nil
-            @showCaution = 1
-            render 'login'
-        else
-            redirect_to '/'
+        if params[:_id] == nil || params[:pass] == nil
+            return
         end
-
+        @infoUser = User.find_by(username: params[:_id], password: params[:pass])
     end
 
     def signup
+        @checkCookie = 1
         render 'signup'
     end
 

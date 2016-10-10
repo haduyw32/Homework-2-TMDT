@@ -1,5 +1,9 @@
 class IndexController < ApplicationController
-    def def
+    def index
         render 'index'
+    end
+    def indexp
+        @temp = 'show'
+        
     end
 end

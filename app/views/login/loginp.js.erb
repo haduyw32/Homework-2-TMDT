@@ -1,0 +1,16 @@
+<% if @infoUser == nil %>
+    $("form span").text("Tên đăng nhập hoặc mật khẩu không hợp lệ");
+<% else %>
+    var username = "<%= @infoUser.username %>";
+    var password = "<%= @infoUser.password %>";
+    var name = "<%= @infoUser.name %>";
+    function setCookie(cname, cvalue) {
+        document.cookie = cname + "=" + cvalue + ";";
+    }
+    $(document).ready(function() {
+        setCookie("cusername", username);
+        setCookie("cpassword", password);
+        setCookie("cname", name);
+        window.location.href="/";
+    });
+<% end %>
