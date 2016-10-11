@@ -4,9 +4,9 @@ $(".list-group-item").remove();
 <% @getList.each do |i| %>
     $('.list-group').append("<a class=list-group-item><%= i.username %></a>");
 <% end %>
-
 $('.list-group-item').click(function() {
-    $.post("/saveFriend", {ower: getCookie("cusername"), friend: $( this ).text();},  function() {		
+    $.post("/saveFriend", {ower: getCookie("cusername"), friend: $( this ).text()}, function() {		
     });
-    
+    alert("Đã thêm " + $( this ).text() + " thành công!")
+    $( this ).slideUp();
 });

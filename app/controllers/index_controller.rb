@@ -1,4 +1,5 @@
 class IndexController < ApplicationController
+    skip_before_filter  :verify_authenticity_token
     def index
         render 'index'
     end
@@ -9,5 +10,10 @@ class IndexController < ApplicationController
 
     def saveF
         Friend.create!(ower: params[:ower], friend: params[:friend])
-    end  
+    end
+
+    def saveC
+        Content.create!(ower: params[:ower], content: params[:content])
+        
+    end
 end

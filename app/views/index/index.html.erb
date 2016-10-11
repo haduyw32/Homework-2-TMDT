@@ -58,22 +58,41 @@
         <!-- hàm để đăng tweet -->
         <script>
         function myFunction() {
-            var x = document.getElementById("myTextarea").value;
-            document.getElementById("demo").innerHTML = x;
+            var x = $("#tweet").html() + "<p id=demo>" + document.getElementById("myTextarea").value + "</p><br>Comment:"
+        + "<br><textarea placeholder='Your name' name=name id=name style='margin-left: 0px; width: 150px;height: 25px;' ></textarea>"
+        + "<br><textarea placeholder='Input your comment' name=comment id=comment style='margin-left: 0px; width: 80%;height: 50px;'></textarea>"
+        + "<br><button type=submit onclick=showcomment()>Submit</button><div id=comment_view><hr>";
+            document.getElementById("tweet").innerHTML = x;
             document.getElementById("myTextarea").value = "";
+            $.post("/saveContent", {ower: getCookie("cusername"), content: document.getElementById("myTextarea").value},  function() {		
+            });
         }
         </script>
         <!-- kết thúc hàm để đăng tweet -->
-
       </div>
-      <hr>
     </div> <!-- kết thúc div tweetcontent -->
     
     <div id="tweet" style="margin-left: 250px; margin-top: 50px;"> <!-- bắt đầu div tweet, div nội dung tweet trên wall -->
-      <p id="demo"></p>
-      <hr>
+      
     </div> <!-- kết thúc div tweet -->
   </div> <!-- kêt thúc div content -->
   <%= render "frindFriend" %>
 </div> <!-- kết thúc div page -->
+<script>
+  function showcomment() {
+      var n = $('#name').val();
+      var c = $('#comment').val();
+      var temp = window.location.href;
+      for (var i=temp.length; i>0; i--) {
+          if (temp[i] == '/') {
+          temp = temp.substring(i+1, temp.length);
+          }
+      }
+     
+      var strhtml ;
+      strhtml = "<div style = border-bottom-style:double;> <span class=author><b class=author-name>" +
+      n + "</b> said:</span> <blockquote style=margin-left:10px;>" + c + "</blockquote> </div>";
+      $('#comment_view').append(strhtml);
+  }
+</script>
 
